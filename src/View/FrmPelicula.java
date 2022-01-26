@@ -4,6 +4,9 @@
  */
 package View;
 
+import Controller.PeliculasDAO;
+import Model.Peliculas;
+
 /**
  *
  * @author pipes
@@ -29,18 +32,24 @@ public class FrmPelicula extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         nombrePeliculajLabel = new javax.swing.JLabel();
         textoPrincipaljLabel = new javax.swing.JLabel();
-        anioPeliculajTextField = new javax.swing.JTextField();
         anioPeliculajLabel = new javax.swing.JLabel();
-        nombrePeliculajTextField = new javax.swing.JTextField();
         generoPeliculajLabel = new javax.swing.JLabel();
-        resumenPeliculajTextField = new javax.swing.JTextField();
         resumenPeliculajLabel = new javax.swing.JLabel();
         directorPeliculajLabel = new javax.swing.JLabel();
-        directorPeliculajTextField = new javax.swing.JTextField();
         duracionPeliculajLabel = new javax.swing.JLabel();
-        generoPeliculajTextField = new javax.swing.JTextField();
-        duracionPeliculajTextField = new javax.swing.JTextField();
         guardarjButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        nombrePeliculajTextArea = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        duracionPeliculajTextArea = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        anioPeliculajjTextArea = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        directorPeliculajTextArea = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        generoPeliculajTextArea = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        resumenPeliculajTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,40 +64,13 @@ public class FrmPelicula extends javax.swing.JFrame {
         textoPrincipaljLabel.setForeground(new java.awt.Color(60, 63, 65));
         textoPrincipaljLabel.setText(" Peliculas Premier");
 
-        anioPeliculajTextField.setEditable(false);
-        anioPeliculajTextField.setForeground(new java.awt.Color(60, 63, 65));
-        anioPeliculajTextField.setToolTipText("");
-        anioPeliculajTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                anioPeliculajTextFieldActionPerformed(evt);
-            }
-        });
-
         anioPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         anioPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
         anioPeliculajLabel.setText("Anio de la pelicula");
 
-        nombrePeliculajTextField.setEditable(false);
-        nombrePeliculajTextField.setForeground(new java.awt.Color(60, 63, 65));
-        nombrePeliculajTextField.setToolTipText("");
-        nombrePeliculajTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombrePeliculajTextFieldActionPerformed(evt);
-            }
-        });
-
         generoPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         generoPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
         generoPeliculajLabel.setText("Genero");
-
-        resumenPeliculajTextField.setEditable(false);
-        resumenPeliculajTextField.setForeground(new java.awt.Color(60, 63, 65));
-        resumenPeliculajTextField.setToolTipText("");
-        resumenPeliculajTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resumenPeliculajTextFieldActionPerformed(evt);
-            }
-        });
 
         resumenPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         resumenPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
@@ -98,36 +80,9 @@ public class FrmPelicula extends javax.swing.JFrame {
         directorPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
         directorPeliculajLabel.setText("Director de la pelicula");
 
-        directorPeliculajTextField.setEditable(false);
-        directorPeliculajTextField.setForeground(new java.awt.Color(60, 63, 65));
-        directorPeliculajTextField.setToolTipText("");
-        directorPeliculajTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                directorPeliculajTextFieldActionPerformed(evt);
-            }
-        });
-
         duracionPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         duracionPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
         duracionPeliculajLabel.setText("Duracion");
-
-        generoPeliculajTextField.setEditable(false);
-        generoPeliculajTextField.setForeground(new java.awt.Color(60, 63, 65));
-        generoPeliculajTextField.setToolTipText("");
-        generoPeliculajTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generoPeliculajTextFieldActionPerformed(evt);
-            }
-        });
-
-        duracionPeliculajTextField.setEditable(false);
-        duracionPeliculajTextField.setForeground(new java.awt.Color(60, 63, 65));
-        duracionPeliculajTextField.setToolTipText("");
-        duracionPeliculajTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                duracionPeliculajTextFieldActionPerformed(evt);
-            }
-        });
 
         guardarjButton.setText("Guardar");
         guardarjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +90,36 @@ public class FrmPelicula extends javax.swing.JFrame {
                 guardarjButtonActionPerformed(evt);
             }
         });
+
+        nombrePeliculajTextArea.setColumns(20);
+        nombrePeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        nombrePeliculajTextArea.setRows(5);
+        jScrollPane1.setViewportView(nombrePeliculajTextArea);
+
+        duracionPeliculajTextArea.setColumns(20);
+        duracionPeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        duracionPeliculajTextArea.setRows(5);
+        jScrollPane2.setViewportView(duracionPeliculajTextArea);
+
+        anioPeliculajjTextArea.setColumns(20);
+        anioPeliculajjTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        anioPeliculajjTextArea.setRows(5);
+        jScrollPane3.setViewportView(anioPeliculajjTextArea);
+
+        directorPeliculajTextArea.setColumns(20);
+        directorPeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        directorPeliculajTextArea.setRows(5);
+        jScrollPane4.setViewportView(directorPeliculajTextArea);
+
+        generoPeliculajTextArea.setColumns(20);
+        generoPeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        generoPeliculajTextArea.setRows(5);
+        jScrollPane5.setViewportView(generoPeliculajTextArea);
+
+        resumenPeliculajTextArea.setColumns(20);
+        resumenPeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        resumenPeliculajTextArea.setRows(5);
+        jScrollPane6.setViewportView(resumenPeliculajTextArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -155,49 +140,50 @@ public class FrmPelicula extends javax.swing.JFrame {
                             .addComponent(resumenPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(anioPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(70, 70, 70)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(duracionPeliculajTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                            .addComponent(generoPeliculajTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(directorPeliculajTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(anioPeliculajTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombrePeliculajTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(resumenPeliculajTextField))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane1)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(163, 163, 163))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(384, 384, 384)
                 .addComponent(guardarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(textoPrincipaljLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombrePeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombrePeliculajTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nombrePeliculajLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(anioPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(directorPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(anioPeliculajTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(anioPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(directorPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(directorPeliculajTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(generoPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(generoPeliculajTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(duracionPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(duracionPeliculajTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(resumenPeliculajLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(resumenPeliculajTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(resumenPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(guardarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -210,38 +196,26 @@ public class FrmPelicula extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void anioPeliculajTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anioPeliculajTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_anioPeliculajTextFieldActionPerformed
-
-    private void nombrePeliculajTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrePeliculajTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombrePeliculajTextFieldActionPerformed
-
-    private void resumenPeliculajTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resumenPeliculajTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_resumenPeliculajTextFieldActionPerformed
-
-    private void directorPeliculajTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_directorPeliculajTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_directorPeliculajTextFieldActionPerformed
-
-    private void generoPeliculajTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generoPeliculajTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_generoPeliculajTextFieldActionPerformed
-
-    private void duracionPeliculajTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_duracionPeliculajTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_duracionPeliculajTextFieldActionPerformed
-
     private void guardarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarjButtonActionPerformed
         // TODO add your handling code here:
+        String titulo = this.nombrePeliculajTextArea.getText();
+        int anio = Integer.parseInt(this.anioPeliculajjTextArea.getText());
+        String director = this.directorPeliculajTextArea.getText();
+        String genero = this.generoPeliculajTextArea.getText();
+        int duracion = Integer.parseInt(this.duracionPeliculajTextArea.getText());
+        String resumen = this.resumenPeliculajTextArea.getText();
+        Peliculas peliculas = new Peliculas(titulo, anio, director, genero, duracion, resumen);
+        
+        PeliculasDAO peliculasDAO = new PeliculasDAO();
+        peliculasDAO.insertarNuevaPelicula(peliculas);
     }//GEN-LAST:event_guardarjButtonActionPerformed
 
     /**
@@ -281,19 +255,25 @@ public class FrmPelicula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anioPeliculajLabel;
-    private javax.swing.JTextField anioPeliculajTextField;
+    private javax.swing.JTextArea anioPeliculajjTextArea;
     private javax.swing.JLabel directorPeliculajLabel;
-    private javax.swing.JTextField directorPeliculajTextField;
+    private javax.swing.JTextArea directorPeliculajTextArea;
     private javax.swing.JLabel duracionPeliculajLabel;
-    private javax.swing.JTextField duracionPeliculajTextField;
+    private javax.swing.JTextArea duracionPeliculajTextArea;
     private javax.swing.JLabel generoPeliculajLabel;
-    private javax.swing.JTextField generoPeliculajTextField;
+    private javax.swing.JTextArea generoPeliculajTextArea;
     private javax.swing.JButton guardarjButton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel nombrePeliculajLabel;
-    private javax.swing.JTextField nombrePeliculajTextField;
+    private javax.swing.JTextArea nombrePeliculajTextArea;
     private javax.swing.JLabel resumenPeliculajLabel;
-    private javax.swing.JTextField resumenPeliculajTextField;
+    private javax.swing.JTextArea resumenPeliculajTextArea;
     private javax.swing.JLabel textoPrincipaljLabel;
     // End of variables declaration//GEN-END:variables
 }
