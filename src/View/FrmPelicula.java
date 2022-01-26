@@ -6,6 +6,12 @@ package View;
 
 import Controller.PeliculasDAO;
 import Model.Peliculas;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,10 +19,12 @@ import Model.Peliculas;
  */
 public class FrmPelicula extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmPelicula
-     */
+    
+    FondoPanel fondoPanel = new FondoPanel();
+    
     public FrmPelicula() {
+        
+        this.setContentPane(fondoPanel);
         initComponents();
     }
 
@@ -29,7 +37,7 @@ public class FrmPelicula extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        javax.swing.JPanel jPanel1 = new FondoPanel();
         nombrePeliculajLabel = new javax.swing.JLabel();
         textoPrincipaljLabel = new javax.swing.JLabel();
         anioPeliculajLabel = new javax.swing.JLabel();
@@ -55,34 +63,42 @@ public class FrmPelicula extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(187, 187, 187));
         jPanel1.setToolTipText("");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        nombrePeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        nombrePeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
+        nombrePeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        nombrePeliculajLabel.setForeground(new java.awt.Color(255, 255, 255));
         nombrePeliculajLabel.setText("Nombre de la pelicula");
+        jPanel1.add(nombrePeliculajLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 203, 42));
 
-        textoPrincipaljLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        textoPrincipaljLabel.setForeground(new java.awt.Color(60, 63, 65));
+        textoPrincipaljLabel.setFont(new java.awt.Font("Dubai Medium", 1, 48)); // NOI18N
+        textoPrincipaljLabel.setForeground(new java.awt.Color(0, 0, 0));
         textoPrincipaljLabel.setText(" Peliculas Premier");
+        jPanel1.add(textoPrincipaljLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 430, 65));
 
-        anioPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        anioPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
+        anioPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        anioPeliculajLabel.setForeground(new java.awt.Color(255, 255, 255));
         anioPeliculajLabel.setText("Anio de la pelicula");
+        jPanel1.add(anioPeliculajLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 203, 34));
 
-        generoPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        generoPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
+        generoPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        generoPeliculajLabel.setForeground(new java.awt.Color(255, 255, 255));
         generoPeliculajLabel.setText("Genero");
+        jPanel1.add(generoPeliculajLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 203, 30));
 
-        resumenPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        resumenPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
+        resumenPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        resumenPeliculajLabel.setForeground(new java.awt.Color(255, 255, 255));
         resumenPeliculajLabel.setText("Resumen");
+        jPanel1.add(resumenPeliculajLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 203, 36));
 
-        directorPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        directorPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
+        directorPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        directorPeliculajLabel.setForeground(new java.awt.Color(255, 255, 255));
         directorPeliculajLabel.setText("Director de la pelicula");
+        jPanel1.add(directorPeliculajLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 203, 34));
 
-        duracionPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        duracionPeliculajLabel.setForeground(new java.awt.Color(60, 63, 65));
+        duracionPeliculajLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        duracionPeliculajLabel.setForeground(new java.awt.Color(255, 255, 255));
         duracionPeliculajLabel.setText("Duracion");
+        jPanel1.add(duracionPeliculajLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 203, 34));
 
         guardarjButton.setText("Guardar");
         guardarjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -90,115 +106,64 @@ public class FrmPelicula extends javax.swing.JFrame {
                 guardarjButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(guardarjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 131, 42));
 
+        nombrePeliculajTextArea.setBackground(new java.awt.Color(255, 255, 255));
         nombrePeliculajTextArea.setColumns(20);
         nombrePeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         nombrePeliculajTextArea.setRows(5);
+        nombrePeliculajTextArea.setBorder(null);
+        nombrePeliculajTextArea.setOpaque(false);
         jScrollPane1.setViewportView(nombrePeliculajTextArea);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 95, 292, 40));
 
         duracionPeliculajTextArea.setColumns(20);
         duracionPeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         duracionPeliculajTextArea.setRows(5);
         jScrollPane2.setViewportView(duracionPeliculajTextArea);
 
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 292, 45));
+
         anioPeliculajjTextArea.setColumns(20);
         anioPeliculajjTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         anioPeliculajjTextArea.setRows(5);
         jScrollPane3.setViewportView(anioPeliculajjTextArea);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 292, 45));
 
         directorPeliculajTextArea.setColumns(20);
         directorPeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         directorPeliculajTextArea.setRows(5);
         jScrollPane4.setViewportView(directorPeliculajTextArea);
 
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 292, 45));
+
         generoPeliculajTextArea.setColumns(20);
         generoPeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         generoPeliculajTextArea.setRows(5);
         jScrollPane5.setViewportView(generoPeliculajTextArea);
+
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 292, 45));
 
         resumenPeliculajTextArea.setColumns(20);
         resumenPeliculajTextArea.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         resumenPeliculajTextArea.setRows(5);
         jScrollPane6.setViewportView(resumenPeliculajTextArea);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(197, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(textoPrincipaljLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(356, 356, 356))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(directorPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(generoPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nombrePeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(duracionPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resumenPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(anioPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(70, 70, 70)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane1)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(163, 163, 163))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(384, 384, 384)
-                .addComponent(guardarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(textoPrincipaljLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nombrePeliculajLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(anioPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(directorPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(generoPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(duracionPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(resumenPeliculajLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(guardarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-        );
+        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 292, 45));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 953, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
         );
 
         pack();
@@ -249,9 +214,24 @@ public class FrmPelicula extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmPelicula().setVisible(true);
+                
             }
         });
     }
+    
+    class FondoPanel extends JPanel{
+        private Image imagen;
+        
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/Img/imgFondo.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anioPeliculajLabel;
@@ -263,7 +243,6 @@ public class FrmPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel generoPeliculajLabel;
     private javax.swing.JTextArea generoPeliculajTextArea;
     private javax.swing.JButton guardarjButton;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
